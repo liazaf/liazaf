@@ -1,0 +1,24 @@
+/*
+
+my_reverse(List, Result)
+	is true if Result unify with a list that contains the element of list in a reverse order.
+    
+Induction
+
+1) P(n0)
+2) P(n-1) -> P(n)
+   P(n):- P(n-1).
+
+*/
+
+my_reverse([], []).
+/*  n (then this is true) <- n-1 (if this is true)	*/
+my_reverse([Head|Tail], R2):- my_reverse(Tail, Result), append(Result, [Head], R2).
+
+/* Result unify with a list that contains the element of Tail in a reverse order. */
+/* Head is only tje first element of the list. Tail is the rest of the elements. */
+/* 
+ ex. 
+ my_reverse([1,2,3,4,5], R).
+ with line 16 it will give the result: R=[5,4,3,2,1]
+ */
