@@ -1,0 +1,21 @@
+/*
+
+my_append(?List1, ?List2, ?Result)
+	is true when Result unify with a list with elements of List1 followed by elements in List2 in same order.
+
+the R is the result, it combines the two lists
+append([1,2,3], [4,5,6], R).
+R = [1,2,3,4,5,6]
+
+Induction
+1) P(0)
+2) P(n-1) -> P(n)
+
+In case of Lists n0 = []
+n-1 -> [Head|Tail] -> Tail is n-1
+
+*/
+
+my_append([], List2, List2).
+
+my_append([Head|Tail], List2, [Head|R]):- my_append(Tail, List2, R).
